@@ -34,13 +34,13 @@ function Detail() {
     return <>
       <div className="director">Director: {director}</div>
       <div className="producer">Producer: {producer.split(',').map((produce, index) => <React.Fragment key={index}>{produce}<br/></React.Fragment>)}</div>
-      <div className="release_date">Release date: <Timer date={release_date}/></div>
+      <div className="release_date">Release date: <Timer showcount={false} date={release_date}/></div>
     </>
   }
 
   return (
     <div className="details">
-      <Button onClick={() => navigate(-1)} withstyles={false} text="Back to results" icon="arrow left"></Button>
+      <Button click={() => navigate(-1)} withstyles={false} text="Back to results" icon="arrow left"></Button>
       {error && <div>{error}</div>}
       {loading && <div>Loading id {id}</div>}
       {!loading && !error &&
