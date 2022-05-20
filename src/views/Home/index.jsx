@@ -1,4 +1,4 @@
-function Index() {
+function Home() {
 
   return (
     <div>
@@ -7,4 +7,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default Home;
