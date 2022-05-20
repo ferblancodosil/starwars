@@ -1,8 +1,8 @@
 import axios from "axios"
-import { BASE_URL } from '../env'
+import {BASE_URL} from '../env'
 import { _data } from "./fake"
 
-const getData = async (url) => {
+export const getData = async (url) => {
   if (url === undefined) throw new Error("Not defined url")
   // It is necessary have fake data because the api is veeeeery slow :(
   if (_data[url]) return _data[url]
