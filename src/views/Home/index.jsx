@@ -49,12 +49,12 @@ function Home() {
   }
   return (
     <div className="home">
-      <form action='/'>
-      <div className="title">Search films by titles, characters or planets</div>
-      <div className="searcher">
-        <Searcher name="query" value={searcherValue} onChange={({ text }) => setSearcherValue(text)}></Searcher>
-        <Button text="Go" disabled={loading}></Button>
-      </div>
+      <form action='/' className={!filter ? 'middle-page' : ''}>
+        <div className="title">Search films by titles, characters or planets</div>
+        <div className="searcher">
+          <Searcher name="query" value={searcherValue} onChange={({ text }) => setSearcherValue(text)}></Searcher>
+          <Button text="Go" disabled={loading}></Button>
+        </div>
       </form>
       {loading ?
         <div>Loading data</div> :
