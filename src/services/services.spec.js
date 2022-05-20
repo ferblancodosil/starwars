@@ -11,7 +11,6 @@ jest.mock('axios')
 
 describe('getAll', () => {
   const response = (url) => {
-    console.info('url', url)
     switch (url) {
       case 'https://swapi.dev/api/films':
         return Promise.resolve({ data: list })
