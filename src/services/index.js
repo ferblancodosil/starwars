@@ -29,7 +29,7 @@ export const getAll = async ({ filter = [], elements = 'films' } = {}) => {
           const characters = await Promise.all((item.characters || []).map(character => getData(character)))
           const planets = await Promise.all((item.planets || []).map(planet => getData(planet)))
           const _searcher = `${item.title.toLowerCase()},${characters.map(c => c.name.toLowerCase()).join()},${planets.map(p => p.name.toLowerCase()).join()}`
-          const film_id = Number(item.url.replaceAll(new RegExp(".*\/([0-9]+)\/$", "gi"), "$1"))
+          const film_id = Number(item.url.replaceAll(new RegExp(".*\\/([0-9]+)\\/$", "gi"), "$1"))
           data.push({...item, _searcher, characters, planets, film_id})
         }
         getAll._cache = Object.assign([], data)
