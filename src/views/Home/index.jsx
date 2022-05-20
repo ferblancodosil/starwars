@@ -19,10 +19,12 @@ function Home() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        setLoading(true)
-        const array2filter = filter.split(' ').filter(Boolean)
-        const films = await getAll({ filter: array2filter })
-        setFilms(films)
+        if (filter) {
+          setLoading(true)
+          const array2filter = filter.split(' ').filter(Boolean)
+          const films = await getAll({filter: array2filter})
+          setFilms(films)
+        }
       } finally {
         setLoading(false)
       }
@@ -31,8 +33,10 @@ function Home() {
   }, [filter])
 
   useEffect(() => {
-    setFilter(searchParams.get('query'))
-    setSearcherValue(searchParams.get('query'))
+    if (searchParams.get('query')) {
+      setFilter(searchParams.get('query'))
+      setSearcherValue(searchParams.get('query'))
+    }
   }, [searchParams])
 
   const CardContent = ({ content: { title, director, episode_id, release_date, film_id } }) => {
