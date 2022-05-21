@@ -41,7 +41,7 @@ Is necessary run before `yarn start` to connect with the website
 ## Next steps
 
 - Add i18n to have better UX, for example in title table
-- Add more test in all components with Testing Library. In this moment, only existe test to the component Timer
+- Add more test in all components with Testing Library. In this moment, only exist test to the component Timer
 
 ## Considerations
 
