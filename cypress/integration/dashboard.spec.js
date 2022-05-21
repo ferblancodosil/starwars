@@ -31,7 +31,7 @@ describe('The starwars app', () => {
     cy.get('.subtitle').first().contains('Episode 4')
     cy.get('.card .director').first().contains('Director: George Lucas')
     cy.get('.card .producer').first().contains('Producer: Gary Kurtz Rick McCallum')
-    cy.get('.card .release_date').first().contains('Release date: 25-5-1977')
+    cy.get('.card .release_date').first().contains('Release date: 25-05-1977')
   })
 
   it('open searcher card successfully', () => {
@@ -39,7 +39,7 @@ describe('The starwars app', () => {
     cy.get('.card .title').first().contains('A New Hope')
     cy.get('.card .episode').first().contains('Episode 4')
     cy.get('.card .director').first().contains('Director: George Lucas')
-    cy.get('.card .release_date > span').eq(0).contains('25-5-1977')
+    cy.get('.card .release_date > span').eq(0).contains('25-05-1977')
     cy.get('.card .release_date').eq(1).then(element => {
       const text = element.text()
       expect(text).to.match(new RegExp('([0-9]+ years ago)', 'gi'))
