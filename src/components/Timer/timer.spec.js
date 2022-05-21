@@ -13,3 +13,7 @@ test('validate the number of years the day after birthday', () => {
   render(<Timer date={'1977-05-25'} currDate={new Date('2022-05-26')} />);
   expect(screen.getByText(/45 years ago/i)).toBeInTheDocument();
 });
+test('validate the number format DD-MM-YYYY', () => {
+  render(<Timer date={'1977-05-04'} currDate={new Date('2022-05-26')} />);
+  expect(screen.getByText(/04-05-1977/i)).toBeInTheDocument();
+});
