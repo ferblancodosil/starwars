@@ -12,14 +12,14 @@ function Home() {
   let [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const [searcherValue, setSearcherValue] = useState('')
-  const [filter, setFilter] = useState('')
+  const [filter, setFilter] = useState(undefined)
   const [films, setFilms] = useState([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        if (filter) {
+        if (filter !== undefined) {
           setLoading(true)
           const array2filter = filter.split(' ').filter(Boolean)
           const films = await getAll({filter: array2filter})
@@ -33,7 +33,8 @@ function Home() {
   }, [filter])
 
   useEffect(() => {
-    if (searchParams.get('query')) {
+    console.info('searchParams.get(\'query\')', searchParams.get('query'))
+    if (searchParams.get('query') !== null) {
       setFilter(searchParams.get('query'))
       setSearcherValue(searchParams.get('query'))
     }
@@ -49,7 +50,7 @@ function Home() {
   }
   return (
     <div className="home">
-      <form action='/' className={!filter ? 'middle-page' : ''}>
+      <form action='/' className={filter === undefined ? 'middle-page' : ''}>
         <div className="title">Search films by titles, characters or planets</div>
         <div className="searcher">
           <Searcher name="query" value={searcherValue} onChange={({ text }) => setSearcherValue(text)}></Searcher>

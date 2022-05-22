@@ -45,4 +45,12 @@ describe('The starwars app', () => {
       expect(text).to.match(new RegExp('([0-9]+ years ago)', 'gi'))
     })
   })
+
+  it('Empty search', () => {
+    cy.visit('http://localhost:3000')
+    cy.get('.card').should('have.length', 0)
+    cy.get('button').click()
+    cy.url().should('include', '?query=')
+    cy.get('.card').should('have.length', 6)
+  })
 })
