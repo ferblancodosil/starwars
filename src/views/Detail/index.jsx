@@ -5,14 +5,14 @@ import { getDetail } from "../../services"
 import Card from '../../components/Card'
 import './index.scss'
 import Timer from "../../components/Timer"
-import Button from "../../components/Button";
+import Button from "../../components/Button"
 
 function Detail() {
   const { id } = useParams()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(undefined)
   const [detail, setDetail] = useState(undefined)
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const loadData = async () => {
@@ -40,7 +40,7 @@ function Detail() {
 
   return (
     <div className="details">
-      <Button click={() => navigate(-1)} withstyles={false} text="Back to results" icon="arrow left"></Button>
+      <Button click={() => navigate(-1) || navigate('/')} withstyles={false} text="Back to results" icon="arrow left"></Button>
       {error && <div>{error}</div>}
       {loading && <div>Loading id {id}</div>}
       {!loading && !error &&
