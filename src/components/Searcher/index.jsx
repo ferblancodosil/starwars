@@ -12,7 +12,7 @@ function Searcher({ value, placeholder, onChange, name = 'searcher' }) {
     setSearcherValue(value)
   }, [value])
   return (
-    <input name={name} value={searcherValue} placeholder={placeholder} className="u-full-width" type="search" onChange={handleChange}/>
+    <input maxLength={100} name={name} value={searcherValue} placeholder={placeholder} className="u-full-width" type="search" onChange={handleChange}/>
   )
 
 }
