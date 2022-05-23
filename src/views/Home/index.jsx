@@ -5,12 +5,11 @@ import Button from "../../components/Button"
 import { getAll } from "../../services"
 import Timer from "../../components/Timer"
 import Card from "../../components/Card"
-import { useNavigate, useSearchParams } from "react-router-dom"
+import { Link, useSearchParams} from "react-router-dom"
 import { PATH_DETAILS } from "../../env"
 
 function Home() {
   let [searchParams] = useSearchParams()
-  const navigate = useNavigate()
   const [searcherValue, setSearcherValue] = useState('')
   const [filter, setFilter] = useState(undefined)
   const [films, setFilms] = useState([])
@@ -41,12 +40,12 @@ function Home() {
   }, [searchParams])
 
   const CardContent = ({ content: { title, director, episode_id, release_date, film_id } }) => {
-    return <div className="pointer content" onClick={() => navigate(PATH_DETAILS.replace(":id", film_id))}>
+    return <Link to={PATH_DETAILS.replace(":id", film_id)} className="pointer content">
       <div className="title">{title}</div>
       <div className="director">Director: {director}</div>
       <div className="episode">Episode {episode_id}</div>
       <div className="release_date"><Timer date={release_date}/></div>
-    </div>
+    </Link>
   }
   return (
     <div className="home">
