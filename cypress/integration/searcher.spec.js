@@ -53,4 +53,17 @@ describe('The starwars app', () => {
     cy.url().should('include', '?query=')
     cy.get('.card').should('have.length', 6)
   })
+
+  it('Then user decide add 150 characters in the input', () => {
+    cy.visit('http://localhost:3000')
+
+    cy.get('input')
+      .type('123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789a123456789123456789123456789123456789123456789fin')
+
+    cy.get('button')
+      .click()
+
+    cy.url().should('equals', 'http://localhost:3000/?query=123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789a')
+
+  })
 })
